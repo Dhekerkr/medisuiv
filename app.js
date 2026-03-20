@@ -46,16 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 1. Importer/initialiser Firebase
       // 2. Récupérer auth
       // 3. Appeler signInWithEmailAndPassword(auth, email, password)
-      // 4. Rediriger vers dashboard.html en cas de succès
-      //
-      // Exemple :
-      // signInWithEmailAndPassword(auth, email, password)
-      //   .then(() => {
-      //     window.location.href = "dashboard.html";
-      //   })
-      //   .catch((error) => {
-      //     setMessage("login-message", error.message, "error");
-      //   });
+      // 4. Rediriger vers dashboard.html en cas de succès (window.location.href = "dashboard.html")
     });
   }
 
@@ -101,14 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       // TODO Firebase :
-      // createUserWithEmailAndPassword(auth, email, password)
-      //   .then((userCredential) => {
-      //     // Facultatif : updateProfile(userCredential.user, { displayName: name })
-      //     setMessage("register-message", "Compte créé avec succès.", "success");
-      //   })
-      //   .catch((error) => {
-      //     setMessage("register-message", error.message, "error");
-      //   });
+      // createUserWithEmailAndPassword...
     });
   }
 
@@ -137,13 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       // TODO Firebase :
-      // sendPasswordResetEmail(auth, email)
-      //   .then(() => {
-      //     setMessage("forgot-message", "E-mail de réinitialisation envoyé.", "success");
-      //   })
-      //   .catch((error) => {
-      //     setMessage("forgot-message", error.message, "error");
-      //   });
+      // sendPasswordResetEmail...
     });
   }
 
@@ -165,26 +143,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "success"
       );
 
-      // TODO Firebase :
-      // signOut(auth)
-      //   .then(() => {
-      //     window.location.href = "index.html";
-      //   })
-      //   .catch((error) => {
-      //     setMessage("dashboard-message", error.message, "error");
-      //   });
+      // TODO Firebase : 
+      // signOut...
     };
 
     logoutButton?.addEventListener("click", logoutHandler);
     logoutLink?.addEventListener("click", logoutHandler);
 
     // TODO Firebase :
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //     userDisplay.textContent = user.email || user.displayName || "Utilisateur connecté";
-    //   } else {
-    //     window.location.href = "index.html";
-    //   }
-    // });
+    // onAuthStateChanged...
   }
 });
