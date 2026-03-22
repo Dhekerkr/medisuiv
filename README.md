@@ -1,4 +1,4 @@
-TP – Intégration Firebase Authentication
+TP – Intégrer un fournisseur d’authentification à une application web avec Firebase Authentication Contexte
 Partie 1 — Préparation du service d’authentification
 Pourquoi l’application n’a-t-elle pas besoin de stocker directement les mots de passe ?
 
@@ -11,7 +11,7 @@ L’utilisateur existe chez le fournisseur, donc chez Firebase. L’application 
 
 Que contrôle encore l’application cliente ?
 
-L’application gère l’interface (formulaires, messages), les vérifications simples (email valide, champs remplis), les redirections et l’affichage des informations de l’utilisateur connecté.
+L’application gère les interfaces, les vérifications simples, les redirections et l’affichage des informations de l’utilisateur connecté.
 
 Partie 3 — Création de compte depuis l’application
 En quoi la création de compte depuis l’application change-t-elle le rôle de l’application ?
@@ -43,3 +43,34 @@ Avec email/mot de passe, le compte est créé spécialement pour l’application
 L’application connaît-elle le mot de passe Google de l’utilisateur ?
 
 Non, l’application ne voit jamais le mot de passe Google. Il est saisi directement sur le site de Google.
+
+
+TD — Réflexion sur un passage de Authentication à ProSantéConnect
+1. Dans l’application Firebase actuelle, quelles fonctionnalités dépendent d’un “compte local géré par le fournisseur” ?
+création de compte
+connexion email/mot de passe
+mot de passe oublié
+2. Si on remplace Firebase par Pro Santé Connect, quels écrans deviennent inadaptés ou doivent être repensés ?
+
+Les écrans de création de compte, de connexion classique et de réinitialisation ne sont plus nécessaires avec Pro Santé Connect.
+
+3. Qu’est-ce que l’application devrait faire à la place d’un formulaire de connexion local ?
+
+Il faut ajouter un bouton qui redirige vers Pro Santé Connect pour se connecter.
+
+4. Quelles nouvelles informations techniques faudrait-il configurer côté application ?
+client ID
+client secret
+URL de redirection
+paramètres OIDC
+5. Qu’est-ce qui change dans la responsabilité de l’application ?
+
+L’application ne gère plus directement la connexion. Elle doit gérer une redirection vers un service externe et traiter le retour.
+
+6. Que peut-on conserver malgré tout de l’application Firebase actuelle ?
+les pages de l’application
+l’interface
+l’affichage des données utilisateur
+7. Pourquoi le passage à PSC est-il plus lourd qu’un simple changement de SDK ?
+
+Parce que Pro Santé Connect utilise un système standard (OIDC) avec redirections, sécurité et configuration plus avancée, contrairement à Firebase qui est plus simple à utiliser côté client.
