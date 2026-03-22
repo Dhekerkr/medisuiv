@@ -1,4 +1,5 @@
 TP – Intégrer un fournisseur d’authentification à une application web avec Firebase Authentication Contexte
+
 Partie 1 — Préparation du service d’authentification
 Pourquoi l’application n’a-t-elle pas besoin de stocker directement les mots de passe ?
 
